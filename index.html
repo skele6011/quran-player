@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Audio Loop Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tiktokio Coming in Clutch</h1>
+        <div class="track-selector">
+            <label for="trackSelect">Select Track:</label>
+            <select id="trackSelect"></select>
+        </div>
+        <audio id="quranAudio" controls></audio>
+        <canvas id="visualizer"></canvas>
+        <div class="volume-normalizer">
+            <label for="targetVolume">Target Volume Level:</label>
+            <input type="range" id="targetVolume" min="0" max="1" step="0.1" value="0.7">
+            <span id="volumeValue">0.7</span>
+            <button id="toggleNormalizer">Normalizer: OFF</button>
+        </div>
+        <div class="volume-meter">
+            <div id="currentVolume"></div>
+        </div>
+        <div class="controls">
+            <p>Currently Playing: <span id="currentTrack">-</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

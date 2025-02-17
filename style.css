@@ -1,0 +1,76 @@
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+audio {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+.track-selector {
+    margin: 20px 0;
+}
+
+select {
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+#visualizer {
+    width: 100%;
+    height: 100px;
+    background-color: #f0f0f0;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.volume-normalizer {
+    margin: 20px 0;
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: 5px;
+}
+
+.volume-normalizer input[type="range"] {
+    width: 200px;
+    margin: 0 10px;
+}
+
+.volume-meter {
+    width: 100%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+#currentVolume {
+    height: 100%;
+    width: 0%;
+    background: #4CAF50;
+    border-radius: 3px;
+    transition: width 0.1s;
+}
+
+#toggleNormalizer {
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
