@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quran Audio Loop Player</title>
+    <title>Quran Audio Player</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>Tiktokio Coming in Clutch</h1>
+        <h1><i class="fas fa-quran"></i> Quran Player</h1>
         <div class="track-selector">
-            <label for="trackSelect">Select Track:</label>
+            <label for="trackSelect"><i class="fas fa-list-ul"></i> Select Track:</label>
             <select id="trackSelect"></select>
         </div>
         <audio id="quranAudio" controls></audio>
         <canvas id="visualizer"></canvas>
         <div class="volume-normalizer">
-            <label for="targetVolume">Target Volume Level:</label>
+            <label for="targetVolume"><i class="fas fa-volume-up"></i> Target Volume Level:</label>
             <input type="range" id="targetVolume" min="0" max="1" step="0.1" value="0.7">
             <span id="volumeValue">0.7</span>
-            <button id="toggleNormalizer">Normalizer: OFF</button>
+            <button id="toggleNormalizer"><i class="fas fa-magic"></i> Normalizer: OFF</button>
         </div>
         <div class="volume-meter">
             <div id="currentVolume"></div>
         </div>
         <div class="controls">
-            <p>Currently Playing: <span id="currentTrack">-</span></p>
+            <p><i class="fas fa-play-circle"></i> Currently Playing: <span id="currentTrack">-</span></p>
         </div>
     </div>
     <script src="script.js"></script>

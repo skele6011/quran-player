@@ -1,32 +1,53 @@
+body {
+    background: #1a1a1a;
+    color: #fff;
+}
+
 .container {
-    max-width: 600px;
-    margin: 50px auto;
-    text-align: center;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #2d2d2d;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 audio {
     width: 100%;
-    margin: 20px 0;
+    margin: 25px 0;
+    border-radius: 10px;
 }
 
 .controls {
-    margin-top: 20px;
+    background: #3d3d3d;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 25px;
+}
+
+.controls p {
+    margin: 0;
+    font-size: 1.1em;
 }
 
 h1 {
-    color: #333;
+    color: #4CAF50;
+    font-size: 2.5em;
+    margin-bottom: 30px;
 }
 
 .track-selector {
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
 select {
-    padding: 5px 10px;
+    padding: 10px 20px;
     font-size: 16px;
-    margin-left: 10px;
+    background: #3d3d3d;
+    color: #fff;
+    border: 1px solid #4CAF50;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 label {
@@ -35,42 +56,67 @@ label {
 
 #visualizer {
     width: 100%;
-    height: 100px;
-    background-color: #f0f0f0;
-    margin: 20px 0;
-    border-radius: 5px;
+    height: 120px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    margin: 25px 0;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
 }
 
 .volume-normalizer {
-    margin: 20px 0;
-    padding: 10px;
-    background: #f8f8f8;
-    border-radius: 5px;
+    background: #3d3d3d;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 25px 0;
 }
 
 .volume-normalizer input[type="range"] {
-    width: 200px;
-    margin: 0 10px;
+    width: 250px;
+    height: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #1a1a1a;
+    border-radius: 4px;
+    margin: 0 15px;
+}
+
+.volume-normalizer input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #4CAF50;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .volume-meter {
-    width: 100%;
-    height: 20px;
-    background: #ddd;
-    border-radius: 3px;
-    margin: 10px 0;
+    height: 25px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    margin: 20px 0;
+    overflow: hidden;
 }
 
 #currentVolume {
-    height: 100%;
-    width: 0%;
-    background: #4CAF50;
-    border-radius: 3px;
-    transition: width 0.1s;
+    background: linear-gradient(90deg, #4CAF50, #81c784);
+    box-shadow: 0 0 10px rgba(76,175,80,0.5);
 }
 
 #toggleNormalizer {
-    padding: 5px 10px;
-    margin-left: 10px;
-    cursor: pointer;
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#toggleNormalizer:hover {
+    background: #45a049;
+}
+
+#currentTrack {
+    color: #4CAF50;
+    font-weight: bold;
 }

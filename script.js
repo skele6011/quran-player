@@ -2,7 +2,7 @@ const audioElement = document.getElementById('quranAudio');
 const currentTrackElement = document.getElementById('currentTrack');
 const trackSelect = document.getElementById('trackSelect');
 let currentTrackIndex = 1;
-const totalTracks = 13;
+const totalTracks = 14;
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 const analyser = audioContext.createAnalyser();
