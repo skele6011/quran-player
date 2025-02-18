@@ -120,3 +120,35 @@ label {
     color: #4CAF50;
     font-weight: bold;
 }
+
+.loop-controls {
+    margin: 20px 0;
+    padding: 15px;
+    background: #3d3d3d;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.loop-controls select {
+    width: 100px;
+}
+
+#toggleLoop {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#toggleLoop:hover {
+    background: #45a049;
+}
+
+#toggleLoop.active {
+    background: #f44336;
+}

@@ -1,8 +1,14 @@
 const audioElement = document.getElementById('quranAudio');
 const currentTrackElement = document.getElementById('currentTrack');
 const trackSelect = document.getElementById('trackSelect');
+const loopStartSelect = document.getElementById('loopStart');
+const loopEndSelect = document.getElementById('loopEnd');
+const toggleLoopBtn = document.getElementById('toggleLoop');
 let currentTrackIndex = 1;
 const totalTracks = 14;
+let isLooping = false;
+let loopStart = 1;
+let loopEnd = totalTracks;
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 const analyser = audioContext.createAnalyser();
@@ -113,6 +119,17 @@ for (let i = 1; i <= totalTracks; i++) {
     trackSelect.appendChild(option);
 }
 
+// Populate loop selectors
+[loopStartSelect, loopEndSelect].forEach(select => {
+    for (let i = 1; i <= totalTracks; i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = `Track ${i}`;
+        select.appendChild(option);
+    }
+});
+loopEndSelect.value = totalTracks;
+
 function loadAndPlayTrack(index) {
     const audioPath = `audio/tiktokQuran${index}.mp3`;
     audioElement.src = audioPath;
@@ -129,13 +146,40 @@ function loadAndPlayTrack(index) {
 draw();
 
 audioElement.addEventListener('ended', () => {
-    currentTrackIndex = currentTrackIndex >= totalTracks ? 1 : currentTrackIndex + 1;
+    if (isLooping) {
+        currentTrackIndex = currentTrackIndex >= loopEnd ? loopStart : currentTrackIndex + 1;
+    } else {
+        currentTrackIndex = currentTrackIndex >= totalTracks ? 1 : currentTrackIndex + 1;
+    }
     loadAndPlayTrack(currentTrackIndex);
 });
 
 trackSelect.addEventListener('change', (e) => {
     currentTrackIndex = parseInt(e.target.value);
     loadAndPlayTrack(currentTrackIndex);
+});
+
+toggleLoopBtn.addEventListener('click', () => {
+    isLooping = !isLooping;
+    toggleLoopBtn.textContent = `Loop: ${isLooping ? 'ON' : 'OFF'}`;
+    toggleLoopBtn.classList.toggle('active');
+});
+
+[loopStartSelect, loopEndSelect].forEach(select => {
+    select.addEventListener('change', () => {
+        loopStart = parseInt(loopStartSelect.value);
+        loopEnd = parseInt(loopEndSelect.value);
+        
+        if (loopStart > loopEnd) {
+            [loopStartSelect.value, loopEndSelect.value] = [loopEnd, loopStart];
+            [loopStart, loopEnd] = [loopEnd, loopStart];
+        }
+        
+        if (isLooping && (currentTrackIndex < loopStart || currentTrackIndex > loopEnd)) {
+            currentTrackIndex = loopStart;
+            loadAndPlayTrack(currentTrackIndex);
+        }
+    });
 });
 
 loadAndPlayTrack(currentTrackIndex);
